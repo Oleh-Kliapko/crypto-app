@@ -1,0 +1,40 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# Editor directories and files
+
+
+# testing
+/coverage
+
+# typescript
+*.tsbuildinfo
+
+# production
+/build
+
+# vercel
+.vercel
+
+# misc
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
