@@ -1,7 +1,14 @@
 import { FC } from "react";
 
+import { AppLayout } from "./components/Layout";
+import { CryptoContextProvider } from "./context";
+
 const App: FC = () => {
-  return <div>React Crypto App</div>;
+  return (
+    <CryptoContextProvider>
+      <AppLayout />
+    </CryptoContextProvider>
+  );
 };
 
 export default App;
