@@ -21,6 +21,8 @@ export const AssetCard: FC<AssetCardProps> = ({
   someStyles = {
     marginBottom: "1rem",
     boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.05)",
+    minWidth: 250,
+    maxWidth: 400,
   },
 }) => {
   const { id, growPercentages, isGrow, totalAmount, totalProfit, amount } =

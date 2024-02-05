@@ -40,8 +40,9 @@ export interface ICryptoAsset {
   amount: number;
   price: number;
   date: Date | string;
-  isGrow?: boolean;
-  growPercentages?: number;
-  totalAmount?: number;
-  totalProfit?: number;
+  isGrow: boolean;
+  growPercentages: number;
+  totalAmount: number;
+  totalProfit: number;
+  name: string;
 }

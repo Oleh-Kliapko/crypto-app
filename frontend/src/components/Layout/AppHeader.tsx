@@ -64,7 +64,7 @@ export const AppHeader: FC = () => {
         onSelect={handleSelect}
         onClick={() => setSelected((prev) => !prev)}
         placeholder='press "/" to open or close'
-        someStyles={{ width: "23%" }}
+        someStyles={{ width: "23%", minWidth: 250, maxWidth: 400 }}
       />
 
       <Button type="primary" onClick={() => setIsDrawerOpen(true)}>

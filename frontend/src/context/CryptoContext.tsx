@@ -29,8 +29,8 @@ export const CryptoContextProvider: FC<{ children: React.ReactNode }> = ({
     async function preload() {
       setIsLoading(true);
 
-      // const { result } = await getAllCoins();
-      const { result } = await fakeFetchCryptoData();
+      const { result } = await getAllCoins();
+      // const { result } = await fakeFetchCryptoData();
       const assets = await fakeFetchAssets();
 
       const updatedAssets = await mapAssets(assets, result);
@@ -50,8 +50,8 @@ export const CryptoContextProvider: FC<{ children: React.ReactNode }> = ({
   ): Promise<ICryptoAsset[]> {
     const updatedAssets = await Promise.all(
       assets.map(async (asset) => {
-        const coin: ICrypto | undefined = result.find((c) => c.id === asset.id);
-        // const coin: ICrypto | undefined = await getCoinsById(asset.id);
+        // const coin: ICrypto | undefined = result.find((c) => c.id === asset.id);
+        const coin: ICrypto | undefined = await getCoinsById(asset.id);
 
         let additionalAssetsInfo;
         if (coin) {
@@ -60,13 +60,15 @@ export const CryptoContextProvider: FC<{ children: React.ReactNode }> = ({
             growPercentages: percentageDiff(asset.price, coin.price),
             totalAmount: asset.amount * coin.price,
             totalProfit: asset.amount * (coin.price - asset.price),
+            name: coin.name,
           };
         } else {
           additionalAssetsInfo = {
             isGrow: false,
             growPercentages: 0,
-            totalAmount: asset.amount * asset.price,
+            totalAmount: 0,
             totalProfit: 0,
+            name: "",
           };
         }
 
