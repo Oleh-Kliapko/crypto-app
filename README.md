@@ -1,13 +1,10 @@
-# Crypto app: Your Ultimate Crypto Companion
+# Crypto companion app: practice being a trader using fake funds!
 
-## 1. User-friendly Interface:
-
-The app boasts an intuitive and user-friendly interface, making it easy for both beginners and experienced traders to navigate.
+## 1. User-friendly Interface and visual display of information.
+The program has an intuitive and convenient interface that facilitates navigation.
 
 ## 2. Real-Time Crypto Prices:
-
-Users can access real-time price updates for a wide range of cryptocurrencies, providing them with the latest market information.
+Users can get up-to-date real-time prices for a wide range of cryptocurrencies, providing them with the latest market information.
 
 ## 3. Multiple Fiat Currencies:
-
-Users can choose their preferred fiat currency for displaying values and cryptocurrency prices. This feature helps users understand the value of their investments in their local currency.
+Users can select the desired currency and add to their portfolio. Every day you can analyze the income for each currency and make decisions about the correctness of investments in the future.
