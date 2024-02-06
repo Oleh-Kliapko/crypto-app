@@ -1,5 +1,5 @@
-# Crypto companion app: practice being a trader using fake funds!
-<img src="https://assets-global.website-files.com/63ce7b0ee546a54b9c8f3f25/642d48d79450cf0f24ec8220_62f3e76fe689b745e1162d67_What%2520is%2520P.A%2520in%2520crypto.svg" width="200" height="200">
+![image](https://github.com/Oleh-Kliapko/crypto-app/assets/108567101/fc1a3d17-5821-4a63-a8e1-739cfd6b938a)# Crypto companion app: practice being a trader using fake funds!
+<img src="https://www.addevice.io/storage/ckeditor/uploads/images/6390774fc068f_guide.on.how.to.start.a.cryptocurrency.exchange.png" width="300" height="450">
 
 ## 1. User-friendly Interface and visual display of information.
 The program has an intuitive and convenient interface that facilitates navigation.
