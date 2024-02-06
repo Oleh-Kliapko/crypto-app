@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useRef, useState } from "react";
 import {
   Drawer,
   Form,
@@ -7,6 +7,7 @@ import {
   Divider,
   DatePicker,
   Result,
+  Spin,
 } from "antd";
 import { useForm } from "antd/lib/form/Form";
 import { SmileOutlined } from "@ant-design/icons";
@@ -43,25 +44,36 @@ const validateMessages = {
 export const AddAssetModal: FC<AddAssetProps> = ({ isDrawerOpen, onClose }) => {
   const [coin, setCoin] = useState<ICrypto | undefined>();
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<any>(null);
+
   const [form] = useForm();
-  const { crypto, addAsset } = useCrypto();
+  const {
+    // crypto,
+    addAsset,
+  } = useCrypto();
   const assetRef = useRef<ICryptoAsset>();
 
-  const handleSelect = (value: string) => {
-    setIsSubmitted(false);
-    // const coin: ICrypto = await getCoinsById(asset.id);
-    const coin: ICrypto | undefined = crypto.find((c) => c.id === value);
-    setCoin(coin);
+  const handleSelect = async (value: string) => {
+    setIsLoading(true);
+    setError(null);
+    // const coin: ICrypto | undefined = crypto.find((c) => c.id === value);
+    try {
+      const coin: ICrypto = await getCoinsById(value);
 
-    if (coin) {
-      const { price } = coin;
-      form.setFieldsValue({ price: rounding(price) });
+      setCoin(coin);
+      form.setFieldsValue({ price: rounding(coin.price) });
+    } catch (error: any) {
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleOnClose = () => {
     onClose();
     setCoin(undefined);
+    setIsSubmitted(false);
   };
 
   const handleAmountChange = (value: number | null) => {
@@ -78,6 +90,7 @@ export const AddAssetModal: FC<AddAssetProps> = ({ isDrawerOpen, onClose }) => {
 
     const newAsset: ICryptoAsset = {
       id: coin!.id,
+      name: coin!.name,
       amount: values.amount,
       price: values.price,
       date: values.date || new Date(),
@@ -103,11 +116,16 @@ export const AddAssetModal: FC<AddAssetProps> = ({ isDrawerOpen, onClose }) => {
     >
       <SelectCoin
         onSelect={handleSelect}
-        placeholder="Choose your coin ..."
+        placeholder="Choose a coin ..."
         someStyles={{ width: "100%", marginBottom: 24 }}
       />
       <Divider style={{ marginTop: 0, marginBottom: 12 }} />
-      {coin && !isSubmitted && (
+      {isLoading && (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Spin size="large" />
+        </div>
+      )}
+      {!isLoading && !error && coin && !isSubmitted && (
         <>
           <CoinHeader coin={coin} someStyles={{ marginBottom: 20 }} />
           <ChangeCoinPrices
@@ -161,6 +179,18 @@ export const AddAssetModal: FC<AddAssetProps> = ({ isDrawerOpen, onClose }) => {
             </Form.Item>
           </Form>
         </>
+      )}
+      {error && (
+        <Result
+          status="error"
+          title="Something went wrong!"
+          subTitle="Please check and try again"
+          extra={
+            <Button type="default" onClick={() => setError(null)}>
+              Close
+            </Button>
+          }
+        />
       )}
       {isSubmitted && (
         <Result

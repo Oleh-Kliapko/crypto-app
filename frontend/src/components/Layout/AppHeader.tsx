@@ -1,5 +1,5 @@
 import { FC, useEffect, useState, useRef } from "react";
-import { Layout, Select, Space, Button, ConfigProvider } from "antd";
+import { Layout, Button } from "antd";
 
 import { useCrypto } from "../../hooks";
 import { ICrypto } from "../../interfaces";
@@ -29,7 +29,7 @@ export const AppHeader: FC = () => {
 
   useEffect(() => {
     function handleKeydown(evt: KeyboardEvent) {
-      if (evt.key === "/") {
+      if (evt.key === "Control") {
         setSelected((prev) => !prev);
       }
 
@@ -63,12 +63,13 @@ export const AppHeader: FC = () => {
         isOpen={selected}
         onSelect={handleSelect}
         onClick={() => setSelected((prev) => !prev)}
-        placeholder='press "/" to open or close'
+        showSearch
+        placeholder='press "Ctrl" to open or close'
         someStyles={{ width: "23%", minWidth: 250, maxWidth: 400 }}
       />
 
       <Button type="primary" onClick={() => setIsDrawerOpen(true)}>
-        Add Asset
+        Add Crypto Coin
       </Button>
 
       {coin && (

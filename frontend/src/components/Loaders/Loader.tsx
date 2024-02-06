@@ -13,7 +13,7 @@ const style: React.CSSProperties = {
   flexDirection: "column",
   gap: "40px",
   alignItems: "center",
-  justifyContent: "flex-start",
+  justifyContent: "center",
   backgroundColor: "rgba(0,0,0,0.1)",
 };
 

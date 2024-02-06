@@ -7,7 +7,7 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 const getAllCoins = async (): Promise<ICryptoData> => {
   try {
     const response: AxiosResponse<ICryptoData> = await axios.get(
-      `${BASE_URL}/coins`,
+      `${BASE_URL}/coins?limit=1000`,
       {
         headers: {
           accept: "application/json",

@@ -37,12 +37,12 @@ export interface ICryptoData {
 
 export interface ICryptoAsset {
   id: string;
+  name: string;
   amount: number;
   price: number;
   date: Date | string;
-  isGrow: boolean;
-  growPercentages: number;
-  totalAmount: number;
-  totalProfit: number;
-  name: string;
+  isGrow?: boolean;
+  growPercentages?: number;
+  totalAmount?: number;
+  totalProfit?: number;
 }

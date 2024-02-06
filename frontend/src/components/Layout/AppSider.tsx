@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Layout } from "antd";
+import { Layout, Spin } from "antd";
 
 import { useCrypto } from "../../hooks";
 import { AssetCard } from "../Common";

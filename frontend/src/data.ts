@@ -612,28 +612,28 @@ export const cryptoData: ICryptoData = {
 };
 
 export const cryptoAssets: ICryptoAsset[] = [
-  {
-    id: "bitcoin",
-    amount: 0.01,
-    price: 40000,
-    date: new Date(),
-  },
-  {
-    id: "ethereum",
-    amount: 1,
-    price: 2000,
-    date: new Date(),
-  },
-  {
-    id: "shiba-inu",
-    amount: 200000000,
-    price: 0.0000091,
-    date: new Date(),
-  },
-  {
-    id: "litecoin",
-    amount: 10,
-    price: 70,
-    date: new Date(),
-  },
+  // {
+  //   id: "bitcoin",
+  //   amount: 0.01,
+  //   price: 40000,
+  //   date: new Date(),
+  // },
+  // {
+  //   id: "ethereum",
+  //   amount: 1,
+  //   price: 2000,
+  //   date: new Date(),
+  // },
+  // {
+  //   id: "shiba-inu",
+  //   amount: 200000000,
+  //   price: 0.0000091,
+  //   date: new Date(),
+  // },
+  // {
+  //   id: "litecoin",
+  //   amount: 10,
+  //   price: 70,
+  //   date: new Date(),
+  // },
 ];

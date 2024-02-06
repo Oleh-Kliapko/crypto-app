@@ -9,7 +9,8 @@ interface SelectCoinProps {
   isOpen?: boolean;
   onSelect: (value: string) => void;
   onClick?: () => void;
-  isShowSearch?: boolean;
+  showSearch?: boolean;
+  onSearch?: (value: string) => void;
   placeholder?: string;
   someStyles?: object;
 }
@@ -19,7 +20,8 @@ export const SelectCoin: FC<SelectCoinProps> = ({
   isOpen,
   onSelect,
   onClick,
-  isShowSearch,
+  showSearch,
+  onSearch,
   placeholder,
   someStyles,
 }) => {
@@ -41,6 +43,8 @@ export const SelectCoin: FC<SelectCoinProps> = ({
         open={isOpen}
         onSelect={onSelect}
         onClick={onClick}
+        showSearch={showSearch}
+        onSearch={onSearch}
         placeholder={placeholder}
         optionLabelProp="label"
         options={crypto.map((coin: ICrypto) => ({
@@ -48,7 +52,6 @@ export const SelectCoin: FC<SelectCoinProps> = ({
           value: coin.id,
           icon: coin.icon,
         }))}
-        showSearch={isShowSearch}
         filterOption={(input, option) =>
           (option?.label ?? "").toLowerCase().includes(input.toLowerCase())
         }
