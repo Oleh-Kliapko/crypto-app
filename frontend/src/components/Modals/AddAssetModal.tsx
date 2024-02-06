@@ -116,6 +116,7 @@ export const AddAssetModal: FC<AddAssetProps> = ({ isDrawerOpen, onClose }) => {
     >
       <SelectCoin
         onSelect={handleSelect}
+        showSearch
         placeholder="Choose a coin ..."
         someStyles={{ width: "100%", marginBottom: 24 }}
       />
