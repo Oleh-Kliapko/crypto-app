@@ -2,8 +2,8 @@ import { FC } from "react";
 import { Typography, Tag, List, ConfigProvider, Card, Statistic } from "antd";
 import { ArrowDownOutlined, ArrowUpOutlined } from "@ant-design/icons";
 
-import { ICryptoAsset } from "../../interfaces";
-import { capitalize } from "../../helpers";
+import { ICryptoAsset } from "@/interfaces";
+import { capitalize } from "@/helpers";
 
 interface AssetCardProps {
   asset: ICryptoAsset;

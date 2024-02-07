@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Flex, Typography, Image } from "antd";
 
-import { ICrypto } from "../../interfaces";
+import { ICrypto } from "@/interfaces";
 
 interface CoinHeaderProps {
   coin: ICrypto;

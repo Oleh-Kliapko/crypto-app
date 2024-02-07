@@ -1,9 +1,10 @@
 import { FC } from "react";
 import { Modal, Typography, Divider } from "antd";
 
-import { ICrypto } from "../../interfaces";
 import { CoinHeader, ChangeCoinPrices } from "../Common";
-import { rounding } from "../../helpers";
+
+import { ICrypto } from "@/interfaces";
+import { rounding } from "@/helpers";
 
 interface CoinInfoModalProps {
   coin: ICrypto;

@@ -1,9 +1,9 @@
 import { FC } from "react";
-import { Divider, Layout, Typography } from "antd";
+import { Layout, Typography } from "antd";
 
 import { AssetsTable, PortfolioChart } from "../Common";
-import { useCrypto } from "../../hooks";
-import { summarizeAssets } from "../../helpers";
+import { useCrypto } from "@/hooks";
+import { summarizeAssets } from "@/helpers";
 
 const contentStyle: React.CSSProperties = {
   minHeight: "calc(100vh - 60px)",

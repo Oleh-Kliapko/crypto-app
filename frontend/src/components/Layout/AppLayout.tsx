@@ -2,9 +2,9 @@ import { FC } from "react";
 import { Layout, Result } from "antd";
 
 import { AppHeader, AppSider, AppContent } from ".";
-
 import { Loader } from "../Loaders";
-import { useCrypto } from "../../hooks";
+
+import { useCrypto } from "@/hooks";
 
 const notificationStyle: React.CSSProperties = {
   height: "100vh",

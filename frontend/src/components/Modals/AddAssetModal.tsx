@@ -13,11 +13,11 @@ import { useForm } from "antd/lib/form/Form";
 import { SmileOutlined } from "@ant-design/icons";
 
 import { SelectCoin, CoinHeader, ChangeCoinPrices } from "../Common";
-import { ICrypto, ICryptoAsset } from "../../interfaces";
-import { useCrypto } from "../../hooks";
-import { rounding } from "../../helpers";
 
-import { getCoinsById } from "../../api";
+import { ICrypto, ICryptoAsset } from "@/interfaces";
+import { useCrypto } from "@/hooks";
+import { rounding } from "@/helpers";
+import { getCoinsById } from "@/api";
 
 interface AddAssetProps {
   isDrawerOpen: boolean;
@@ -48,16 +48,12 @@ export const AddAssetModal: FC<AddAssetProps> = ({ isDrawerOpen, onClose }) => {
   const [error, setError] = useState<any>(null);
 
   const [form] = useForm();
-  const {
-    // crypto,
-    addAsset,
-  } = useCrypto();
+  const { addAsset } = useCrypto();
   const assetRef = useRef<ICryptoAsset>();
 
   const handleSelect = async (value: string) => {
     setIsLoading(true);
     setError(null);
-    // const coin: ICrypto | undefined = crypto.find((c) => c.id === value);
     try {
       const coin: ICrypto = await getCoinsById(value);
 

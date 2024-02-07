@@ -2,8 +2,8 @@ import { FC } from "react";
 import { Table } from "antd";
 import type { TableColumnsType } from "antd";
 
-import { useCrypto } from "../../hooks";
-import { rounding } from "../../helpers";
+import { useCrypto } from "@/hooks";
+import { rounding } from "@/helpers";
 
 interface DataType {
   key: string;
@@ -59,7 +59,7 @@ export const AssetsTable: FC = () => {
     name: asset.name,
     price: rounding(asset.price),
     amount: asset.amount,
-    balance: asset.totalAmount.toFixed(2),
+    balance: asset.totalAmount!.toFixed(2),
   }));
 
   return <Table pagination={false} columns={columns} dataSource={data} />;

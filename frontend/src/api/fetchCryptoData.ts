@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { ICrypto, ICryptoData } from "../interfaces";
+import { ICrypto, ICryptoData } from "@/interfaces";
 
 const COIN_STATS_KEY = import.meta.env.VITE_COIN_STATS_KEY;
 const BASE_URL = import.meta.env.VITE_BASE_URL;

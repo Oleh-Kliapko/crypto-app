@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { Select, Space, ConfigProvider } from "antd";
 
-import { useCrypto } from "../../hooks";
-import { ICrypto } from "../../interfaces";
+import { useCrypto } from "@/hooks";
+import { ICrypto } from "@/interfaces";
 
 interface SelectCoinProps {
   selectRef?: React.RefObject<any> | undefined;

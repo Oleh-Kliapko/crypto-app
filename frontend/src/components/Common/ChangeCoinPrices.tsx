@@ -1,7 +1,7 @@
 import { FC, Fragment } from "react";
 import { Typography, Tag } from "antd";
 
-import { ICrypto } from "../../interfaces";
+import { ICrypto } from "@/interfaces";
 
 interface ChangeCoinPricesProps {
   coin: ICrypto;

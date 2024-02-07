@@ -2,8 +2,8 @@ import { FC } from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
-import { useCrypto } from "../../hooks";
-import { generateRandomColors } from "../../helpers";
+import { useCrypto } from "@/hooks";
+import { generateRandomColors } from "@/helpers";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 

@@ -1,10 +1,11 @@
 import { FC, useEffect, useState, useRef } from "react";
 import { Layout, Button } from "antd";
 
-import { useCrypto } from "../../hooks";
-import { ICrypto } from "../../interfaces";
 import { CoinInfoModal, AddAssetModal } from "../Modals";
 import { SelectCoin } from "../Common";
+
+import { useCrypto } from "@/hooks";
+import { ICrypto } from "@/interfaces";
 
 const headerStyle: React.CSSProperties = {
   width: "100%",
@@ -32,10 +33,6 @@ export const AppHeader: FC = () => {
       if (evt.key === "Control") {
         setSelected((prev) => !prev);
       }
-
-      // if (evt.key === "Escape") {
-      //   setSelected(false);
-      // }
     }
 
     if (!isModalOpen) {

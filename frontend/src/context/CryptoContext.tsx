@@ -1,9 +1,8 @@
 import { createContext, useState, useEffect, FC } from "react";
 
-import { ICrypto, ICryptoAsset } from "../interfaces";
-import { getCoinsById, getAllCoins } from "../api";
-// import { fakeFetchAssets, fakeFetchCryptoData } from "../api/fakeFetch";
-import { percentageDiff } from "../helpers";
+import { ICrypto, ICryptoAsset } from "@/interfaces";
+import { getCoinsById, getAllCoins } from "@/api";
+import { percentageDiff } from "@/helpers";
 
 interface ICryptoContext {
   crypto: ICrypto[];
@@ -33,13 +32,7 @@ export const CryptoContextProvider: FC<{ children: React.ReactNode }> = ({
       setIsLoading(true);
       try {
         const { result } = await getAllCoins();
-        // const { result } = await fakeFetchCryptoData();
-        // const assets = await fakeFetchAssets();
-
-        const updatedAssets = await mapAssets(
-          assets
-          // result
-        );
+        const updatedAssets = await mapAssets(assets);
 
         setCrypto(result);
         setAssets(updatedAssets);
@@ -52,13 +45,9 @@ export const CryptoContextProvider: FC<{ children: React.ReactNode }> = ({
     preload();
   }, []);
 
-  async function mapAssets(
-    assets: ICryptoAsset[]
-    // result: ICrypto[]
-  ): Promise<ICryptoAsset[]> {
+  async function mapAssets(assets: ICryptoAsset[]): Promise<ICryptoAsset[]> {
     const updatedAssets = await Promise.all(
       assets.map(async (asset) => {
-        // const coin: ICrypto | undefined = result.find((c) => c.id === asset.id);
         const coin: ICrypto | undefined = await getCoinsById(asset.id);
 
         let additionalAssetsInfo;
@@ -89,10 +78,7 @@ export const CryptoContextProvider: FC<{ children: React.ReactNode }> = ({
   }
 
   async function addAsset(newAsset: ICryptoAsset) {
-    const updatedAssets = await mapAssets(
-      [...assets, newAsset]
-      // crypto
-    );
+    const updatedAssets = await mapAssets([...assets, newAsset]);
     setAssets(updatedAssets);
   }
 

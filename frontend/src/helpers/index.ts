@@ -1,4 +1,4 @@
-import { ICryptoAsset } from "../interfaces";
+import { ICryptoAsset } from "@/interfaces";
 
 export const percentageDiff = (a: number, b: number): number => {
   return 100 * Math.abs((a - b) / ((a + b) / 2));
@@ -26,7 +26,7 @@ interface SummarizeAssets {
 
 export const summarizeAssets = (arr: ICryptoAsset[]): SummarizeAssets => {
   const balance = arr
-    .reduce((acc, v) => acc + v.totalAmount, 0)
+    .reduce((acc, v) => acc + v.totalAmount!, 0)
     .toFixed(2)
     .replace(/\B(?=(\d{3})+(?!\d))/g, " ")
     .toLocaleString();

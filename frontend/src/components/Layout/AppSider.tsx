@@ -1,8 +1,9 @@
 import { FC } from "react";
-import { Layout, Spin } from "antd";
+import { Layout } from "antd";
 
-import { useCrypto } from "../../hooks";
 import { AssetCard } from "../Common";
+
+import { useCrypto } from "@/hooks";
 
 export const AppSider: FC = () => {
   const { assets } = useCrypto();
